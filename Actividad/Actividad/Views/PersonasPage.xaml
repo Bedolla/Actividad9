@@ -112,7 +112,7 @@
                                          Orientation="Horizontal"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="Start">
-                                <Label Text="Precio: " />
+                                <Label Text="Correo: " />
                                 <Label Text="{Binding Correo}"
                                        VerticalTextAlignment="Center"
                                        FontAttributes="Bold"
@@ -123,7 +123,7 @@
                                          Orientation="Horizontal"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="Start">
-                                <Label Text="Cantidad: " />
+                                <Label Text="Teléfono: " />
                                 <Label Text="{Binding Telefono}"
                                        VerticalTextAlignment="Center"
                                        FontAttributes="Bold"
