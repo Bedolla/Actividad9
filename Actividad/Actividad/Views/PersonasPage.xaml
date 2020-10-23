@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Actividad.ViewModels;assembly=Actividad"
+             x:Class="Actividad.Views.PersonasPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             Title="Personas">
+
+    <ContentPage.BindingContext>
+        <viewModels:PersonasViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.10*" />
+            <RowDefinition Height="0.10*" />
+            <RowDefinition Height="0.10*" />
+            <RowDefinition Height="0.10*" />
+            <RowDefinition Height="0.80*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Entry
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="0"
+            IsReadOnly="True"
+            IsVisible="False"
+            x:Name="EntryId" />
+        <Entry
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="0"
+            IsReadOnly="True"
+            Placeholder="Nombre"
+            x:Name="EntryNombre" />
+        <Entry
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="1"
+            IsReadOnly="True"
+            Placeholder="Correo"
+            x:Name="EntryCorreo" />
+        <Entry
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+            IsReadOnly="True"
+            Placeholder="Teléfono"
+            x:Name="EntryTelefono" />
+
+        <Button
+            Grid.Column="0"
+            Grid.Row="3"
+            Style="{StaticResource BotonCrear}"
+            Text="Crear"
+            x:Name="ButtonCrear"
+            Clicked="ButtonCrear_OnClicked" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="1"
+            Style="{StaticResource BotonEditar}"
+            IsEnabled="False"
+            Text="Editar"
+            x:Name="ButtonEditar"
+            Clicked="ButtonEditar_OnClicked" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="2"
+            Style="{StaticResource BotonBorrar}"
+            IsEnabled="False"
+            Text="Borrar"
+            x:Name="ButtonBorrar"
+            Clicked="ButtonBorrar_OnClicked" />
+
+        <ListView
+            x:Name="ListViewPersonas"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="False"
+            ItemsSource="{Binding Personas}"
+            ItemSelected="ListaPersonas_OnItemSelected">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="2, 10"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="StartAndExpand">
+
+                            <StackLayout Margin="1"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start">
+                                <Label Text="Nombre: " />
+                                <Label Text="{Binding Nombre}"
+                                       VerticalTextAlignment="Center"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+
+                            <StackLayout Margin="1"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start">
+                                <Label Text="Precio: " />
+                                <Label Text="{Binding Correo}"
+                                       VerticalTextAlignment="Center"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+
+                            <StackLayout Margin="1"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start">
+                                <Label Text="Cantidad: " />
+                                <Label Text="{Binding Telefono}"
+                                       VerticalTextAlignment="Center"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+
+</ContentPage>
